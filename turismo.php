@@ -1,38 +1,95 @@
 <?php
+   
+   system('clear');
 
-function Menu($participacao)
+   Menu($participacao = 2);
+
+function Menu($participacao = 2)
 {
     print("********** MENU **********\n");
-    print("Seja bem vinda(o) às atrações turísticas de Foz do Iguaçu! Deseja conhecer a cidade?");
-    $participacao = readline("[1] Sim \n [2] Não");
+    print("Seja bem vinda(o) às atrações turísticas de Foz do Iguaçu! Deseja conhecer a cidade?\n");
+    $participacao = readline("\n[1] Sim \n [2] Não");
 
     if ($participacao == 1)
     {
-        escolhas();
+        passeios($adultos = 0, $total = 0);
     }
 
+    else
+     {
+        print("Que pena! Esperamos te ver em breve :(");
+    }
 }
 
-function passeios($adultos, $lugares)
+function passeios($total)
 {
-    passeios = ["nome" => cataratas, "valor" => "50"];
-    ["nome" => itaipu, "valor" => 40];
-    ["nome" => "pq", "valor" => "30"];
-    ["nome" => "marco", "valor" => "20"]
+
+    system('clear');
 
     print("********** PASSEIOS **********");
-    print("Cataratas - R$50,00 [1]");
-    print("Itaipu - R$40,00 [2]");
-    print("Parque das Aves - R$30,00 [3]");
-    print("Marco das Três Fronteiras - R$20,00 [4]");//12 - nao paga
+    print("\nCataratas - R$50,00 [1]");
+    print("\nItaipu - R$40,00 [2]");
+    print("\nParque das Aves - R$30,00 [3]");
+    print("\nMarco das Três Fronteiras - R$20,00 [4]\n\n");
 
-    print("Insira o número do lugar que deseja visitar:");
+    $adultos = readline("\nPessoas com até 12 anos não pagam. Dito isso, quantas pessoas com mais de 12 anos participarão?");
 
-    foreach($passeio as $lugar)
-    {
+    
 
+   adicionar_passeio($participacao = 2 ,$total);
+}
+
+function adicionar_passeio($participacao, $total)
+{
+
+    $participacao = readline("\nDeseja adicionar um passeio?\n[1] Sim \n [2] Não");
+
+
+   if ($participacao == 1) 
+   {
+    compra($total, $lugares, $adultos);
+   }
+
+   if ($participacao == 2) 
+   {
+    print("Sua compra deu um valor de {$total} reais. Boa viagem!");
+
+    exit();
+   }
+}
+
+function compra($total, $lugares, $adultos)
+{
+    system('clear');
+
+    $passeios = [50, //cataratas
+    40,  // itaipu
+    30, // parque
+    20]; // marco
+    
+    
+    $lugares = readline("Insira a primeira palavra do lugar que deseja visitar:");
+    $lugares = strtolower($lugares);
+    switch ($lugares) {
+        case 'cataratas':
+            
+            $total = $total + $passeios[0] * $adultos;
+            break;
+        
+        case 'itaipu':
+            
+            $total = $total + $passeios[1] * $adultos;
+            break;
+
+        case 'parque':
+            
+            $total = $total + $passeios[2] * $adultos;
+            break;
+        case 'marco':
+            
+            $total = $total + $passeios[3] * $adultos;
+            break;
     }
 
-    $adultos = readline("Quantos adultos participarão?");
-
+    adicionar_passeio($participacao = 2 ,$total);
 }
