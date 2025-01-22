@@ -11,7 +11,9 @@ programa
 		dois()
 		tres()
 		quatro()
-		*/cinco()
+		cinco()
+		seis()
+		*/sete()
 		
 	}
 	
@@ -109,10 +111,80 @@ programa
 	funcao seis()
 	{
 		inteiro vetor_3[30]
+		inteiro chave
+		inteiro quantidade = 0
 
 		para(inteiro i=0; i < 30; i++)
 		{
-
+			 vetor_3 [i] = sorteia(0, 15)
 		}
+
+		escreva("Insira a chave:")
+		leia(chave)
+
+		escreva("O número ", chave, " apareceu nas posições ")
+		
+		para(inteiro i=0; i < 30; i++)
+		{
+			se(chave == vetor_3[i])
+			{
+				escreva(i, "\n")
+				quantidade++
+				
+			}
+		}
+
+		escreva("Logo, ele apareceu ", quantidade, " vezes.")
+
 	}
+
+	funcao sete()
+	{
+			
+		inteiro listadeImpares[5]
+		inteiro listadePares[5]
+		inteiro listaGeral[10]
+			
+		para(inteiro i=0; i < 5; i++)
+		{
+			escreva("Insira o ", i + 1, "º número ímpar:\n")
+			leia(listadeImpares[i])
+			
+			se(listadeImpares[i] % 2 == 0)
+			{
+				escreva("Esse algoritmo só aceita números ímpares, insira novamente. \n")
+				i--
+			}
+		}
+
+		
+			para(inteiro i=0; i < 5; i++)
+		{
+			escreva("Insira o ", i + 1, "º número par:\n")
+			leia(listadePares[i])
+
+			se(listadePares[i] % 2 == 1)
+			{
+				escreva("Esse algoritmo só aceita números pares, insira novamente. \n")
+				i--
+			}
+		}
+
+		para(inteiro i=0; i < 10; i++)
+				{
+					se(i % 2 == 0)
+					{
+						listaGeral[i] = listadeImpares[i]
+					}
+				}
+			
+			para(inteiro i=0; i < 10; i++)
+				{
+					se(i % 2 == 1)
+					{
+						listaGeral[i] = listadePares[i]
+					}
+				}
+	}
+
 }
