@@ -1,0 +1,118 @@
+programa
+{
+	inclua biblioteca Matematica --> mat
+	
+	inteiro vetor_1[5] = {0, 1, 2, 3, 4}
+	inteiro vetor_2[10]
+	
+	funcao inicio()
+	{
+		/*um()
+		dois()
+		tres()
+		quatro()
+		*/cinco()
+		
+	}
+	
+	funcao um()
+	{
+		limpa()
+		para(inteiro i=0; i < 5; i++)
+		{
+			escreva(vetor_1[i], "\n")
+		}
+	}
+
+	funcao dois()
+	{
+		limpa()
+		para(inteiro i=4; i >= 0; i--)
+		{
+			escreva(vetor_1[i], "\n")
+		}
+	}
+
+	funcao tres()
+	{
+		limpa()
+		real notas[4] = {9.9, 10.0, 8.5, 9.7}
+		real media = 0.0
+		real media_arredondada
+		
+		escreva("As notas são: ")
+		
+		para(inteiro i=0; i < 4; i++)
+		{
+			escreva(notas[i], "\n")
+			media += notas[i]
+		}
+
+		 media = media /  4.0
+
+		 media_arredondada = mat.arredondar(media, 1)
+
+		 escreva("E a média é ", media_arredondada, ".")
+	}
+
+	funcao quatro()
+	{
+		limpa()
+		
+
+		inteiro zerador = 0
+
+		para(inteiro i=0; i < 10; i++)
+		{
+			escreva("Insira o ", i + 1, "º número:\n")
+			leia(vetor_2[i])
+		}
+
+		escreva("Os números pares e suas respectivas posições são:\n")
+
+		para(inteiro i=0; i < 10; i++)
+		{
+			se(vetor_2[i] % 2 == 0)
+			{
+				escreva("Número ", vetor_2[i], " na posição ", i, "\n")
+			}
+
+			senao
+			{
+				zerador++
+			}
+		}
+
+		se(zerador == 10)
+		{
+			escreva("Não foram informados números pares.") 
+		}
+	}
+
+	funcao cinco()
+	{
+		para(inteiro i=0; i < 10; i++)
+		{
+			vetor_2[i] = sorteia(0, 10)
+
+			para(inteiro j=0; j < 10; j++)
+			{
+				se(vetor_2[i] == vetor_2[j] e j != i)
+				{
+					vetor_2[i] = sorteia(0, 10)
+					j = -1
+				}
+			}
+		}
+	}
+
+	funcao seis()
+	{
+		inteiro vetor_3[30]
+
+		para(inteiro i=0; i < 30; i++)
+		{
+
+		}
+	}
+}
