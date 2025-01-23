@@ -13,7 +13,9 @@ programa
 		quatro()
 		cinco()
 		seis()
-		*/sete()
+		sete()
+		sete_c
+		*/oito()
 		
 	}
 	
@@ -144,6 +146,7 @@ programa
 		inteiro listadeImpares[5]
 		inteiro listadePares[5]
 		inteiro listaGeral[10]
+		inteiro posicao = 0
 			
 		para(inteiro i=0; i < 5; i++)
 		{
@@ -170,21 +173,34 @@ programa
 			}
 		}
 
-		para(inteiro i=0; i < 10; i++)
-				{
-					se(i % 2 == 0)
-					{
-						listaGeral[i] = listadeImpares[i]
-					}
-				}
+		para(inteiro i=0; i < 10; i = i + 2)
+			{
+					
+				listaGeral[i] = listadeImpares[posicao]
+				listaGeral[i+1] = listadePares[posicao]
+
+				posicao++
+			}
 			
-			para(inteiro i=0; i < 10; i++)
-				{
-					se(i % 2 == 1)
-					{
-						listaGeral[i] = listadePares[i]
-					}
-				}
+	}
+
+	funcao oito()
+	{
+		inteiro dia_semana
+		inteiro programador
+		cadeia nome_1[5] = {"Debugando o/a ", " O Código de ", "O Algoritmo de ", "Hackeando o/a ", " O Robô de "}
+		cadeia nome_2[5] = {"Sistema operacional", "IA oculta", "Cyberseguraça", "Banco de dados proibido", "Bug fantasma"}
+		
+		escreva("---------- DESCUBRA SEU FILME DE PROGRAMAÇÃO ----------\n")
+
+		escreva("Bem-vinda(o) ao gerador de nomes para filmes de programação!\n")
+		escreva("Para descobrir, insira, em números, o dia da semana em que nasceu (domingo = 1, segunda-feira = 2 e etc)\n")
+		leia(dia_semana)
+
+		escreva("Agora, avalie-se de um 1 a 5 como desenvolvedor(a). Considere 1 como girino e 5 como mestre yoda\n")
+		leia(programador)
+
+		escreva("Perfeito! O nome de seu filme é \"", nome_1[dia_semana], nome_2[programador], "\". Parabéns ;)")
 	}
 
 }
